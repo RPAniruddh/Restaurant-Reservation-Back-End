@@ -3,13 +3,13 @@ package com.reservationapp.security.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.reservationapp.security.models.User;
+import com.reservationapp.security.models.Individual;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Integer> {
+public interface IndividualRepository extends JpaRepository<Individual, Integer> {
 
 	boolean existsByEmail(String email);
 
-	User findByEmail(String email);
+	Individual findByEmail(String email);
 
 }

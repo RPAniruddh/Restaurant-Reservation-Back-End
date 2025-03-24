@@ -11,36 +11,36 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.reservationapp.security.models.User;
-import com.reservationapp.security.service.UserService;
+import com.reservationapp.security.models.Individual;
+import com.reservationapp.security.service.IndividualService;
 
 import lombok.RequiredArgsConstructor;
 
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/individual")
 @RequiredArgsConstructor
-public class UserController {
-	private final UserService service;
+public class IndividualController {
+	private final IndividualService service;
 	
 	@PostMapping("/add")
-	public ResponseEntity<User> addUser(@RequestBody User user) {
-		return ResponseEntity.ok(service.addUser(user));
+	public ResponseEntity<Individual> addIndividual(@RequestBody Individual user) {
+		return ResponseEntity.ok(service.addIndividual(user));
 	}
 	
 	@PutMapping("/update")
-	public ResponseEntity<User> updateUser(@RequestBody User user){
-		return ResponseEntity.ok(service.updateUser(user));
+	public ResponseEntity<Individual> updateIndividual(@RequestBody Individual user){
+		return ResponseEntity.ok(service.updateIndividual(user));
 	}
 	
 	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<String> deleteUser(@PathVariable int id) {
-		service.deleteUser(id);
+	public ResponseEntity<String> deleteIndividual(@PathVariable int id) {
+		service.deleteIndividual(id);
 		return ResponseEntity.status(HttpStatus.OK).body("The user was deleted succefully");
 	}
 	
-	@GetMapping("/getUserDetails/{email}")
-	public ResponseEntity<User> getUserDetails(@PathVariable String email){
-		return ResponseEntity.ok(service.userDetails(email));
+	@GetMapping("/getIndividualDetails/{email}")
+	public ResponseEntity<Individual> getIndividualDetails(@PathVariable String email){
+		return ResponseEntity.ok(service.individualDetails(email));
 	}
 }

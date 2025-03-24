@@ -14,7 +14,7 @@ import lombok.Data;
 
 @Data
 @Entity
-public class User {
+public class Individual {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
